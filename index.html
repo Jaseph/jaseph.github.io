@@ -1,495 +1,1037 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özer Cet - Full-Stack Entwickler aus Köln | PHP & React Portfolio</title>
-    <meta name="description" content="Portfolio von Özer Cet, einem leidenschaftlichen Full-Stack Entwickler aus Köln. Ein einzigartiger Weg vom Handwerker zum Code-Experten mit Fokus auf PHP, React, JavaScript und innovativen Webanwendungen. Bereit für neue Projekte!">
+    <title>Jaseph - Full-Stack Entwickler aus Köln | PHP & React Portfolio</title>
+    <meta name="description" content="Portfolio von Jaseph, einem leidenschaftlichen Full-Stack Entwickler aus Köln. Ein einzigartiger Weg vom Handwerker zum Code-Experten mit Fokus auf PHP, React, JavaScript und innovativen Webanwendungen. Bereit für neue Projekte!">
     <meta name="keywords" content="Full-Stack Entwickler, Webentwickler, PHP Entwickler, React Entwickler, JavaScript, Köln, Freiberufler, Portfolio, Autodidakt, Webentwicklung, WordPress, Next.js, MySQL">
     
-    <meta property="og:title" content="Özer Cet - Full-Stack Entwickler Portfolio aus Köln">
-    <meta property="og:description" content="Portfolio von Özer Cet, einem leidenschaftlichen Full-Stack Entwickler aus Köln mit Fokus auf PHP, React und modernen Web-Technologien.">
+    <meta property="og:title" content="Jaseph - Full-Stack Entwickler Portfolio aus Köln">
+    <meta property="og:description" content="Portfolio von Jaseph, einem leidenschaftlichen Full-Stack Entwickler aus Köln mit Fokus auf PHP, React und modernen Web-Technologien.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jaseph.github.io">
-    <meta property="og:image" content="https://jaseph.github.io/og-image.jpg">
+    <meta property="og:image" content="https://jaseph.github.io/jaseph.jpg">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jaseph",
+  "url": "https://jaseph.github.io",
+  "image": "https://jaseph.github.io/jaseph.jpg",
+  "sameAs": [
+    "https://github.com/jaseph",
+    "https://www.linkedin.com/in/oezercet/",
+    "https://x.com/jaseph_",
+    "https://www.instagram.com/jaseph_",
+    "https://europa.tips"
+  ],
+  "jobTitle": "Full-Stack Entwickler",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Selbstständig"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Köln",
+    "addressCountry": "DE"
+  },
+  "description": "Leidenschaftlicher Full-Stack Entwickler aus Köln mit einem einzigartigen Weg vom Handwerker zum Code-Experten. Fokus auf PHP, React, JavaScript und innovativen Webanwendungen."
+}
+</script>
+
     <meta name="google-site-verification" content="3TWOSgqAhSzwq5AepbXLWd-aYwqWwqzQkWmd8kDJ-Z8" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80' font-weight='bold' fill='white' font-family='monospace'>ÖC</text></svg>">
-    
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #00d4ff; --secondary: #ff0080; --accent: #00ff88; --purple: #8b5cf6; --orange: #ff6b35;
-            --bg-primary: #0a0a0f; --bg-secondary: #111118; --bg-card: #1a1a24; --bg-glass: rgba(26, 26, 36, 0.7);
-            --text-primary: #ffffff; --text-secondary: #b4b4b4; --text-muted: #6b7280; --text-accent: var(--primary);
-            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
-            --shadow-neon: 0 0 20px rgba(0, 212, 255, 0.3); --shadow-purple: 0 0 30px rgba(139, 92, 246, 0.4); --shadow-lg: 0 8px 32px rgba(0,0,0,0.3); --shadow-xl: 0 20px 64px rgba(0,0,0,0.4);
-            --radius-sm: 8px; --radius-md: 16px; --radius-lg: 24px; --radius-xl: 32px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
         }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); overflow-x: hidden; line-height: 1.6; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        /* Navigation */
-        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; backdrop-filter: blur(20px); background: rgba(10, 10, 15, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: var(--transition); }
-        .navbar.scrolled { padding: 0.5rem 0; background: rgba(10, 10, 15, 0.95); box-shadow: var(--shadow-lg); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        .logo { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition); padding: 0.5rem 1rem; border-radius: var(--radius-sm); }
-        .nav-links a:hover { color: var(--text-primary); transform: translateY(-2px); }
-        /* Hero */
-        .hero { min-height: 100vh; display: flex; align-items: center; }
-        .hero-container { display: grid; grid-template-columns: 1fr 400px; gap: 4rem; align-items: center; padding: 8rem 2rem 4rem; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-xl); margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-accent); font-weight: 500; }
-        .hero-badge .status-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .hero-title { font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; line-height: 1.1; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-subtitle { font-size: 1.8rem; color: var(--text-secondary); margin: 0.5rem 0 1rem 0; font-weight: 400; }
-        .hero-tagline { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 2rem; font-weight: 500; }
-        .hero-description { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; line-height: 1.8; }
-        .typing-animation { color: var(--accent); border-right: 2px solid var(--accent); animation: blink 1s infinite; }
-        @keyframes blink { 50% { border-color: transparent; } }
-        .btn { padding: 1rem 2rem; border-radius: var(--radius-md); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-bounce); cursor: pointer; font-size: 1rem; position: relative; overflow: hidden; border: none; }
-        .btn-primary { background: var(--gradient-primary); color: var(--text-primary); box-shadow: var(--shadow-neon); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4); }
-        .btn-secondary { background: transparent; color: var(--text-primary); border: 2px solid var(--primary); }
-        .btn-secondary:hover { background: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-neon); }
-        .code-window { background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); padding: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; max-width: 400px; width: 100%; box-shadow: var(--shadow-xl); }
-        .window-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .window-dot { width: 12px; height: 12px; border-radius: 50%; }
-        .dot-red { background: #ff5f57; } .dot-yellow { background: #ffbd2e; } .dot-green { background: #28ca42; }
-        .syntax-keyword { color: var(--secondary); } .syntax-string { color: var(--accent); } .syntax-function { color: var(--primary); } .syntax-comment { color: var(--text-muted); }
-        /* Sections */
-        .section { padding: 8rem 0; }
-        .section-header { text-align: center; margin-bottom: 5rem; }
-        .section-badge { display: inline-block; padding: 0.5rem 1rem; background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-xl); font-size: 0.9rem; color: var(--text-accent); margin-bottom: 1rem; }
-        .section-title { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1.5rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .section-description { font-size: 1.2rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto; }
-        /* About */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-        .about-grid h3 { font-size: 2rem; margin-bottom: 1.5rem; }
-        .about-grid p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
-        .journey-timeline { position: relative; padding-left: 2rem; }
-        .timeline-line { position: absolute; left: -1px; top: 0.5rem; bottom: 0.5rem; width: 2px; background: var(--gradient-primary); }
-        .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 1rem; }
-        .timeline-dot { position: absolute; left: -2.25rem; top: 0.5rem; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 4px var(--bg-primary), 0 0 10px var(--primary); }
-        .timeline-year { font-size: 0.9rem; color: var(--text-accent); font-weight: 600; margin-bottom: 0.5rem; }
-        .timeline-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .timeline-desc { font-size: 0.95rem; color: var(--text-muted); }
-        /* Skills */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-        .skill-card { background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); }
-        .skill-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--shadow-purple); }
-        .skill-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-        .skill-icon { font-size: 2rem; }
-        .skill-title { font-size: 1.3rem; font-weight: 700; }
-        .skill-item { margin-bottom: 1.5rem; }
-        .skill-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-        .skill-name { font-weight: 500; color: var(--text-secondary); }
-        .skill-percentage { font-size: 0.85rem; font-weight: 600; color: var(--text-accent); }
-        .skill-bar { width: 100%; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden; }
-        .skill-progress { height: 100%; background: var(--gradient-primary); border-radius: 3px; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        /* Projects */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
-        .project-card { background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
-        .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); border-color: var(--primary); }
-        .project-image { height: 150px; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
-        .project-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-        .project-title { font-size: 1.4rem; font-weight: 700; }
-        .project-status { padding: 0.25rem 0.75rem; background: var(--gradient-accent); border-radius: var(--radius-xl); font-size: 0.75rem; font-weight: 600; color: var(--bg-primary); white-space: nowrap; }
-        .project-description { color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7; flex-grow: 1; }
-        .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-        .tech-tag { padding: 0.25rem 0.75rem; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 500; color: var(--primary); }
-        .project-links { display: flex; gap: 1rem; margin-top: auto; }
-        .project-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--bg-secondary); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm); text-decoration: none; color: var(--text-secondary); font-weight: 500; transition: var(--transition); font-size: 0.9rem; }
-        .project-link:hover { background: var(--primary); color: var(--bg-primary); }
-        .projects-outro { background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); padding: 3rem; text-align: center; margin-top: 4rem; }
-        /* Contact */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .contact-info { background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); padding: 3rem; }
-        .contact-item { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
-        .contact-icon { width: 60px; height: 60px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: var(--shadow-neon); flex-shrink: 0; }
-        .contact-details h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .contact-details p { color: var(--text-secondary); margin: 0; }
-        .availability-status { background: var(--gradient-accent); border-radius: var(--radius-lg); padding: 2rem; text-align: center; margin-top: 3rem; }
-        .availability-status h3 { color: var(--bg-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .availability-status p { color: var(--bg-primary); opacity: 0.9; }
-        .download-wrapper { background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); padding: 3rem; }
-        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-        .download-card { background: var(--bg-secondary); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-md); padding: 2rem 1.5rem; transition: var(--transition); text-align: center; cursor: pointer; }
-        .download-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--shadow-neon); }
-        .download-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-        .download-title { font-weight: 600; margin-bottom: 0.5rem; }
-        .download-desc { font-size: 0.9rem; color: var(--text-muted); }
-        .usp-box { margin-top: 3rem; padding: 2rem; background: var(--bg-secondary); border-radius: var(--radius-md); }
-        .usp-box h4 { color: var(--text-accent); margin-bottom: 1rem; }
-        .usp-box ul { list-style: none; padding: 0; color: var(--text-secondary); }
-        .usp-box li { margin-bottom: 0.5rem; }
-        /* Footer */
-        .footer { background: var(--bg-secondary); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 4rem 0 2rem; position: relative; }
-        .footer::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 2px; background: var(--gradient-primary); }
-        .footer-content { text-align: center; }
-        .social-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
-        .social-link { width: 50px; height: 50px; background: var(--bg-glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-decoration: none; font-size: 1.3rem; transition: var(--transition); }
-        .social-link:hover { transform: translateY(-5px); border-color: var(--primary); color: var(--primary); }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
-        .footer-links a { color: var(--text-secondary); text-decoration: none; transition: var(--transition); }
-        .footer-links a:hover { color: var(--primary); }
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container, .about-grid, .contact-grid { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
-            .hero-container { padding-top: 8rem; }
-            .projects-grid { grid-template-columns: 1fr; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .skills-grid { grid-template-columns: 1fr; }
+        
+        .gradient-border {
+            background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E0 100%);
         }
-        /* Utilities */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        /* Notification */
-        .notification { position: fixed; top: 90px; right: 2rem; background: var(--bg-glass); border: 1px solid; border-radius: var(--radius-md); padding: 1rem 2rem; backdrop-filter: blur(10px); box-shadow: var(--shadow-lg); z-index: 10001; transform: translateX(calc(100% + 2rem)); opacity: 0; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease; }
-        .notification.show { transform: translateX(0); opacity: 1; }
-        .notification.success { border-color: var(--accent); color: var(--accent); }
-        .notification.error { border-color: var(--secondary); color: var(--secondary); }
+        
+        .skill-bar {
+            transition: width 2s ease-in-out;
+        }
+        
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #2D3748;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #2D3748; }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .timeline-dot {
+            background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E0 100%);
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F7FAFC 100%);
+        }
     </style>
 </head>
-<body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container container">
-            <a href="#home" class="logo">&lt;/jaseph&gt;</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#ueber-mich">Über Mich</a></li>
-                <li><a href="#kompetenzen">Kompetenzen</a></li>
-                <li><a href="#projekte">Projekte</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">
+                    <span class="text-gray-800">Jaseph</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-gray-900 transition font-medium">Startseite</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900 transition font-medium">Über mich</a>
+                    <a href="#timeline" class="text-gray-600 hover:text-gray-900 transition font-medium">Karriere</a>
+                    <a href="#skills" class="text-gray-600 hover:text-gray-900 transition font-medium">Fähigkeiten</a>
+                    <a href="#projects" class="text-gray-600 hover:text-gray-900 transition font-medium">Projekte</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900 transition font-medium">Kontakt</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+        <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block text-gray-600 hover:text-gray-900 transition font-medium">Startseite</a>
+                <a href="#about" class="block text-gray-600 hover:text-gray-900 transition font-medium">Über mich</a>
+                <a href="#timeline" class="block text-gray-600 hover:text-gray-900 transition font-medium">Karriere</a>
+                <a href="#skills" class="block text-gray-600 hover:text-gray-900 transition font-medium">Fähigkeiten</a>
+                <a href="#projects" class="block text-gray-600 hover:text-gray-900 transition font-medium">Projekte</a>
+                <a href="#contact" class="block text-gray-600 hover:text-gray-900 transition font-medium">Kontakt</a>
+            </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-container container">
-            <div class="hero-content fade-in">
-                <div class="hero-badge">
-                    <div class="status-dot"></div>
-                    Verfügbar für Projekte
-                </div>
-                <h1 class="hero-title">Özer Cet</h1>
-                <h2 class="hero-subtitle">Full-Stack Entwickler aus Köln</h2>
-                <p class="hero-tagline">Vom Reifenmonteur zum <span class="typing-animation" id="typingText"></span></p>
-                <p class="hero-description">
-                    Ein außergewöhnlicher Werdegang, der praktische Problemlösungskompetenz mit modernster Technologie verbindet. Ich entwickle als leidenschaftlicher und autodidaktischer Entwickler innovative Web-Lösungen, die echten Mehrwert schaffen.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#projekte" class="btn btn-primary">🚀 Meine Projekte</a>
-                    <a href="#kontakt" class="btn btn-secondary">💬 Kontakt aufnehmen</a>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 pt-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="float-animation mb-8">
+                <div class="relative">
+                    <img src="jaseph.jpg" alt="Jaseph" class="w-40 h-40 rounded-full mx-auto border-4 border-white shadow-2xl">
+                    <div class="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-white"></div>
                 </div>
             </div>
-            <div class="hero-visual fade-in">
-                <div class="code-window">
-                    <div class="window-header">
-                        <div class="window-dot dot-red"></div><div class="window-dot dot-yellow"></div><div class="window-dot dot-green"></div>
-                        <span style="margin-left: 1rem; font-size: 0.8rem; color: var(--text-muted);">entwickler.js</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 fade-in text-gray-800">
+                Jaseph
+            </h1>
+<p class="text-2xl md:text-3xl mb-6 typing-animation mx-auto max-w-2xl text-gray-600">
+                Full-Stack-Entwickler
+            </p>
+            <p class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
+                Von der Mathematik zum Unternehmertum, vom Unternehmertum zum Coden...
+            </p>
+            <div class="space-x-4">
+                <button onclick="openModal('aboutModal')" class="bg-gray-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-900 transition hover-scale">
+                    Über mich
+                </button>
+                <button onclick="openModal('contactModal')" class="border-2 border-gray-800 text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-800 hover:text-white transition hover-scale">
+                    Kontakt aufnehmen
+                </button>
+            </div>
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-gray-800 transition">
+                    <i class="fab fa-github text-3xl"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-gray-800 transition">
+                    <i class="fab fa-linkedin text-3xl"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-gray-800 transition">
+                    <i class="fab fa-twitter text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+<section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">
+                Über mich
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="jaseph_2.jpg" alt="Arbeitsplatz" class="rounded-lg shadow-xl">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Mathematik- und Technologie-Enthusiast</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Mein Studium am Fachbereich Mathematik der Hacettepe-Universität von 1993 bis 1997 schulte mein analytisches Denkvermögen.
+                    </p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Zwischen 1998 und 2013 lernte ich als Unternehmer und Manager in der Tourismus- und Gastronomiebranche die Dynamik der Geschäftswelt hautnah kennen.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Seit 2018 widme ich mich der Softwareentwicklung, lerne seit 2019 kontinuierlich autodidaktisch und entwickle Projekte.
+                    </p>
+                    <button onclick="openModal('aboutModal')" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition font-medium">
+                        Mehr erfahren <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">
+                Mein Werdegang
+            </h2>
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
+                
+                <div class="mb-12 flex items-center">
+                    <div class="w-1/2 pr-8 text-right">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
+                            <h3 class="text-xl font-semibold text-gray-800">1993-1997</h3>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-700">Fachbereich Mathematik</h4>
+                            <p class="text-gray-600">Hacettepe-Universität, Ankara</p>
+                            <p class="text-sm text-gray-500 mt-2">Hier wurde der Grundstein für mein analytisches Denken und meine Problemlösungskompetenz gelegt.</p>
+                        </div>
                     </div>
-                    <div class="code-content">
-                        <div><span class="syntax-keyword">const</span> <span class="syntax-function">entwickler</span> = {</div>
-                        <div style="padding-left: 1rem;"><span class="syntax-string">name</span>: <span class="syntax-string">"Özer Cet"</span>,</div>
-                        <div style="padding-left: 1rem;"><span class="syntax-string">standort</span>: <span class="syntax-string">"Köln, DE"</span>,</div>
-                        <div style="padding-left: 1rem;"><span class="syntax-string">skills</span>: [<span class="syntax-string">"PHP"</span>, <span class="syntax-string">"React"</span>, <span class="syntax-string">"JS"</span>],</div>
-                        <div style="padding-left: 1rem;"><span class="syntax-string">mission</span>: <span class="syntax-string">"Probleme lösen"</span>,</div>
-                        <div style="padding-left: 1rem;"><span class="syntax-string">verfügbar</span>: <span class="syntax-keyword">true</span></div>
-                        <div>};</div>
-                        <div style="margin-top: 1rem;"><span class="syntax-comment">// Bereit für neue Herausforderungen!</span></div>
+                    <div class="w-12 h-12 timeline-dot rounded-full flex items-center justify-center text-gray-700 font-bold z-10">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+
+                <div class="mb-12 flex items-center">
+                    <div class="w-1/2 pr-8"></div>
+                    <div class="w-12 h-12 timeline-dot rounded-full flex items-center justify-center text-gray-700 font-bold z-10">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-1/2 pl-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
+                            <h3 class="text-xl font-semibold text-gray-800">1998-2013</h3>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-700">Unternehmer & Manager</h4>
+                            <p class="text-gray-600">Tourismus & Gastronomie, Türkei</p>
+                            <p class="text-sm text-gray-500 mt-2">15 Jahre Erfahrung in Unternehmensführung und Leadership gesammelt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-12 flex items-center">
+                    <div class="w-1/2 pr-8 text-right">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
+                            <h3 class="text-xl font-semibold text-gray-800">2018-2024</h3>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-700">Entwickler</h4>
+                            <p class="text-gray-600">Softwareentwicklung</p>
+                            <p class="text-sm text-gray-500 mt-2">Einstieg in die Welt der Technologie und Erwerb grundlegender Programmierkenntnisse.</p>
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 timeline-dot rounded-full flex items-center justify-center text-gray-700 font-bold z-10">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+
+                <div class="mb-12 flex items-center">
+                    <div class="w-1/2 pr-8"></div>
+                    <div class="w-12 h-12 timeline-dot rounded-full flex items-center justify-center text-gray-700 font-bold z-10">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="w-1/2 pl-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
+                            <h3 class="text-xl font-semibold text-gray-800">2019-Heute</h3>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-700">Autodidaktischer Entwickler</h4>
+                            <p class="text-gray-600">Kontinuierliches Lernen</p>
+                            <p class="text-sm text-gray-500 mt-2">Moderne Technologien im Selbststudium gemeistert.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="w-1/2 pr-8 text-right">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover-lift">
+                            <h3 class="text-xl font-semibold text-gray-800">2024+</h3>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-700">Professioneller Full-Stack-Entwickler</h4>
+                            <p class="text-gray-600">Bereit für neue Herausforderungen</p>
+                            <p class="text-sm text-gray-500 mt-2">Ein neues Kapitel der Karriere: Der Weg als professioneller Entwickler.</p>
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 timeline-dot rounded-full flex items-center justify-center text-gray-700 font-bold z-10">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">
+                Meine Fähigkeiten (Skills)
+            </h2>
+            
+            <!-- Frontend Skills -->
+            <div class="mb-12">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-laptop-code text-3xl text-gray-700 mr-4"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Frontend-Entwicklung</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">HTML5 & CSS3</span>
+                            <span class="text-gray-600 font-semibold">95%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">JavaScript (ES6+)</span>
+                            <span class="text-gray-600 font-semibold">85%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">React.js & Next.js</span>
+                            <span class="text-gray-600 font-semibold">75%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">Vue.js & Nuxt.js</span>
+                            <span class="text-gray-600 font-semibold">60%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend Skills -->
+            <div class="mb-12">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-server text-3xl text-gray-700 mr-4"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Backend-Entwicklung</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">PHP</span>
+                            <span class="text-gray-600 font-semibold">90%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">MySQL & PDO</span>
+                            <span class="text-gray-600 font-semibold">85%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">RESTful APIs</span>
+                            <span class="text-gray-600 font-semibold">80%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">Node.js</span>
+                            <span class="text-gray-600 font-semibold">65%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Workflow -->
+            <div class="mb-12">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-tools text-3xl text-gray-700 mr-4"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Tools & Arbeitsablauf</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">Git & GitHub</span>
+                            <span class="text-gray-600 font-semibold">85%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">WordPress (Headless)</span>
+                            <span class="text-gray-600 font-semibold">95%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">SEO & Performance</span>
+                            <span class="text-gray-600 font-semibold">80%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">AI Integration</span>
+                            <span class="text-gray-600 font-semibold">70%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft Skills & Languages -->
+            <div>
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-star text-3xl text-gray-700 mr-4"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Soft Skills & Sprachen</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">Problemlösung</span>
+                            <span class="text-gray-600 font-semibold">98%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="98%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">Autodidaktisches Lernen</span>
+                            <span class="text-gray-600 font-semibold">100%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">Türkisch (Muttersprache)</span>
+                            <span class="text-gray-600 font-semibold">100%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-category p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-gray-700">Deutsch (B1) & Englisch (B1)</span>
+                            <span class="text-gray-600 font-semibold">65%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar bg-gray-700 h-3 rounded-full" style="width: 0%" data-width="65%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="ueber-mich">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-badge">🎯 Meine Geschichte</div>
-                <h2 class="section-title">Der Weg zum Code-Experten</h2>
-                <p class="section-description">Eine unkonventionelle Reise von präziser Handwerksarbeit zu innovativer Softwareentwicklung.</p>
-            </div>
-            <div class="about-grid">
-                <div class="fade-in">
-                    <h3>Vom Handwerk zur Software</h3>
-                    <p>Meine berufliche Laufbahn begann in der Welt der Reifenmontage. Über 5 Jahre lang habe ich dort Präzision, Ausdauer und die Fähigkeit entwickelt, unter Druck effektive Lösungen zu finden. Diese im Handwerk erlernten Kernkompetenzen – Detailgenauigkeit, Qualität und Zuverlässigkeit – bilden heute das Fundament meiner Arbeit als Entwickler.</p>
-                    <p>2019 entfachte meine Leidenschaft für das Programmieren. Autodidaktisch eignete ich mir moderne Web-Technologien an – von den Grundlagen in HTML/CSS bis hin zu komplexen Anwendungen mit PHP, React und Datenbanken. Jede neue Technologie war für mich ein spannendes Puzzle, das es zu meistern galt.</p>
+   <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">
+                Meine Projekte
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="project-card rounded-lg shadow-lg overflow-hidden hover-lift">
+                    <img src="voylera.jpg" alt="Voylera.com - Duyguları haritalama platformu" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Voylera.com</h3>
+                        <p class="text-gray-600 mb-4">Eine innovative Plattform, die es Nutzern ermöglicht, ihre Emotionen auf einer interaktiven Weltkarte zu teilen.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Emotion Mapping</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Web-Anwendung</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">UI/UX</span>
+                        </div>
+                        <button onclick="openModal('projectModal1')" class="text-gray-700 font-semibold hover:text-gray-900">
+                            Details ansehen <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="journey-timeline fade-in">
-                    <div class="timeline-line"></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">1993-1997</div><div class="timeline-title">Mathematikstudium</div><div class="timeline-desc">Hacettepe Universität, Ankara</div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">1998-2013</div><div class="timeline-title">Unternehmer & Manager</div><div class="timeline-desc">Tourismus & Gastronomie, Türkei</div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2018-2024</div><div class="timeline-title">Handwerk & Präzision</div><div class="timeline-desc">Reifenmonteur in Köln</div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2019-heute</div><div class="timeline-title">Autodidaktischer Entwickler</div><div class="timeline-desc">Kontinuierliches Lernen und Projektarbeit</div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2024+</div><div class="timeline-title">Professioneller Full-Stack Entwickler</div><div class="timeline-desc">Bereit für neue Herausforderungen</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="section" id="kompetenzen">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-badge">⚡ Technische Expertise</div>
-                <h2 class="section-title">Meine Kompetenzen & Technologien</h2>
-                <p class="section-description">Umfassende Kenntnisse in modernen Webtechnologien, erworben durch praktische Projektarbeit.</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card fade-in">
-                    <div class="skill-header"><div class="skill-icon">💻</div><h3 class="skill-title">Frontend-Entwicklung</h3></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">HTML5 & CSS3</span><span class="skill-percentage">95%</span></div><div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">JavaScript (ES6+)</span><span class="skill-percentage">85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">React.js & Next.js</span><span class="skill-percentage">75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">Vue.js & Nuxt.js</span><span class="skill-percentage">60%</span></div><div class="skill-bar"><div class="skill-progress" data-width="60%"></div></div></div>
+                <div class="project-card rounded-lg shadow-lg overflow-hidden hover-lift">
+                    <img src="europatips.jpg" alt="Europa.tips - 9 dilde gezi bloğu" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Europa.tips</h3>
+                        <p class="text-gray-600 mb-4">Meine persönliche Reiseplattform, auf der ich meine Erlebnisse und Tipps aus ganz Europa in 9 Sprachen teile.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Mehrsprachig</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Reiseblog</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Content-Plattform</span>
+                        </div>
+                        <button onclick="openModal('projectModal2')" class="text-gray-700 font-semibold hover:text-gray-900">
+                            Details ansehen <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-header"><div class="skill-icon">⚙️</div><h3 class="skill-title">Backend-Entwicklung</h3></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">PHP</span><span class="skill-percentage">90%</span></div><div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">MySQL & PDO</span><span class="skill-percentage">85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">RESTful APIs</span><span class="skill-percentage">80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">Node.js</span><span class="skill-percentage">65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65%"></div></div></div>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-header"><div class="skill-icon">🛠️</div><h3 class="skill-title">Tools & Arbeitsablauf</h3></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">Git & GitHub</span><span class="skill-percentage">85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">WordPress (Headless)</span><span class="skill-percentage">95%</span></div><div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">SEO & Performance</span><span class="skill-percentage">80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">AI Integration</span><span class="skill-percentage">70%</span></div><div class="skill-bar"><div class="skill-progress" data-width="70%"></div></div></div>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-header"><div class="skill-icon">🌟</div><h3 class="skill-title">Soft Skills & Sprachen</h3></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">Problemlösung</span><span class="skill-percentage">98%</span></div><div class="skill-bar"><div class="skill-progress" data-width="98%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">Autodidaktisches Lernen</span><span class="skill-percentage">100%</span></div><div class="skill-bar"><div class="skill-progress" data-width="100%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">Türkisch (Muttersprache)</span><span class="skill-percentage">100%</span></div><div class="skill-bar"><div class="skill-progress" data-width="100%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span class="skill-name">Deutsch (B1) & Englisch (B1)</span><span class="skill-percentage">65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65%"></div></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="section" id="projekte">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-badge">🚀 Portfolio</div>
-                <h2 class="section-title">Ausgewählte Projekte</h2>
-                <p class="section-description">Innovative Lösungen aus der Praxis – von Reise-Plattformen bis zu Business-Tools.</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-image">🌍</div>
-                    <div class="project-content">
-                        <div class="project-header"><h3 class="project-title">europa.tips</h3><div class="project-status">Live</div></div>
-                        <p class="project-description">Eine umfassende Reise-Plattform für Europa mit Headless WordPress-Backend und einem maßgeschneiderten PHP-Frontend. Die Architektur optimiert Performance und SEO. Enthält über 200 Destinationen und interaktive Features.</p>
-                        <div class="project-tech"><span class="tech-tag">WordPress Headless</span><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">REST API</span><span class="tech-tag">SEO</span></div>
-                        <div class="project-links"><a href="https://europa.tips" target="_blank" class="project-link">🌐 Live Demo</a><a href="#kontakt" class="project-link">📋 Details</a></div>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">🗺️</div>
-                    <div class="project-content">
-                        <div class="project-header"><h3 class="project-title">Voylera.com</h3><div class="project-status">In Entwicklung</div></div>
-                        <p class="project-description">Eine revolutionäre Reiseplattform, die sich auf emotionale Reiseerlebnisse konzentriert. Bietet Community-basierte Inhalte mit modernem React-Frontend, Node.js-Backend und PostgreSQL-Datenbank sowie KI-gestützte Empfehlungen.</p>
-                        <div class="project-tech"><span class="tech-tag">React.js</span><span class="tech-tag">Next.js</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">AI Integration</span></div>
-                        <div class="project-links"><a href="#kontakt" class="project-link">🔧 Vorschau</a><a href="#kontakt" class="project-link">📋 Konzept</a></div>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">⚙️</div>
-                    <div class="project-content">
-                        <div class="project-header"><h3 class="project-title">KFZ Service Suite</h3><div class="project-status">Privat</div></div>
-                        <p class="project-description">Ein umfassendes Verwaltungssystem (ERP/CRM) für KFZ-Servicebetriebe. Bietet Kundenverwaltung, Terminplanung, Rechnungserstellung und Lagerverwaltung. Entwickelt mit modernem PHP und MySQL.</p>
-                        <div class="project-tech"><span class="tech-tag">PHP 8</span><span class="tech-tag">MySQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">PDF-Erstellung</span></div>
-                        <div class="project-links"><a href="#kontakt" class="project-link">💼 Anwendungsfall</a><a href="#kontakt" class="project-link">📋 Fallstudie</a></div>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">🤖</div>
-                    <div class="project-content">
-                        <div class="project-header"><h3 class="project-title">KI-gestützter CV-Generator</h3><div class="project-status">Demo</div></div>
-                        <p class="project-description">Dynamischer Lebenslauf- und Anschreiben-Generator. Bietet Echtzeit-Vorschau, mehrere Vorlagen, PDF-Export und intelligente Inhaltsvorschläge. Gebaut mit Vanilla JavaScript für optimale Performance.</p>
-                        <div class="project-tech"><span class="tech-tag">Vanilla JS</span><span class="tech-tag">CSS3</span><span class="tech-tag">HTML5</span><span class="tech-tag">PDF Export</span></div>
-                        <div class="project-links"><a href="#kontakt" class="project-link">🎯 Demo testen</a><a href="https://github.com/jaseph" target="_blank" class="project-link">💻 Quellcode</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="projects-outro fade-in">
-                <h3 style="margin-bottom: 1rem;">🔥 Weitere Projekte in Kürze</h3>
-                <p style="margin-bottom: 2rem; color: var(--text-secondary);">E-Commerce-Lösungen • KI-Tools • Open-Source-Beiträge</p>
-                <a href="https://github.com/jaseph" target="_blank" class="btn btn-primary">💻 Alle Projekte auf GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="kontakt">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-badge">💬 Lassen Sie uns vernetzen</div>
-                <h2 class="section-title">Bereit für eine Zusammenarbeit?</h2>
-                <p class="section-description">Ich bin offen für neue Herausforderungen und innovative Projekte. Lassen Sie uns gemeinsam etwas Großartiges schaffen!</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info fade-in">
-                    <h3 style="margin-bottom: 2rem;">Kontaktinformationen</h3>
-                    <div class="contact-item"><div class="contact-icon">📧</div><div class="contact-details"><h4>E-Mail</h4><p>jaseph@hotmail.com</p></div></div>
-                    <div class="contact-item"><div class="contact-icon">📱</div><div class="contact-details"><h4>Mobil</h4><p>+49 176 63057728</p></div></div>
-                    <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-details"><h4>Standort</h4><p>Köln, Deutschland</p></div></div>
-                    <div class="availability-status"><h3>🟢 Sofort verfügbar</h3><p>Für Vollzeit-, Teilzeit- oder Freelance-Projekte</p></div>
-                </div>
-                <div class="download-wrapper fade-in">
-                    <h3 style="margin-bottom: 1.5rem; text-align: center;">Dokumente & Profile</h3>
-                    <p style="margin-bottom: 2rem; color: var(--text-secondary); text-align: center;">Laden Sie meinen Lebenslauf herunter oder besuchen Sie meine Profile.</p>
-                    <div class="download-grid">
-                        <div class="download-card" onclick="downloadCV()"><span class="download-icon">📄</span><div class="download-title">Lebenslauf</div><div class="download-desc">Direkter Download</div></div>
-                        <div class="download-card" onclick="window.open('https://github.com/jaseph', '_blank')"><span class="download-icon">💻</span><div class="download-title">GitHub</div><div class="download-desc">Code & Projekte</div></div>
-                        <div class="download-card" onclick="window.open('https://linkedin.com/in/ozercet', '_blank')"><span class="download-icon">💼</span><div class="download-title">LinkedIn</div><div class="download-desc">Professionelles Netzwerk</div></div>
-                    </div>
-                    <div class="usp-box">
-                        <h4>💡 Was mich auszeichnet:</h4>
-                        <ul>
-                            <li>✅ <strong>Einzigartiger Werdegang:</strong> Vom Handwerk zu High-Tech</li>
-                            <li>✅ <strong>Autodidaktische Expertise:</strong> Nachweislich selbstständig moderne Technologien erlernt</li>
-                            <li>✅ <strong>Praxiserprobte Problemlösung:</strong> Über 5 Jahre Erfahrung in komplexen Situationen</li>
-                            <li>✅ <strong>Zukunftsorientierung:</strong> Fokus auf KI, moderne Frameworks und innovative Ansätze</li>
-                        </ul>
+                <div class="project-card rounded-lg shadow-lg overflow-hidden hover-lift">
+                    <img src="sitefex.jpg" alt="Sitefex.com - Bio-sayfa oluşturucu" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Sitefex.com</h3>
+                        <p class="text-gray-600 mb-4">Eine mit PHP & Laravel entwickelte Plattform, die es Nutzern ermöglicht, schnell ihre eigene Bio-Seite zu erstellen.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">PHP</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Laravel</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        </div>
+                        <button onclick="openModal('projectModal3')" class="text-gray-700 font-semibold hover:text-gray-900">
+                            Details ansehen <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-content container">
-            <div class="social-links">
-                <a href="https://github.com/jaseph" target="_blank" class="social-link" title="GitHub">💻</a>
-                <a href="https://linkedin.com/in/ozercet" target="_blank" class="social-link" title="LinkedIn">💼</a>
-                <a href="https://europa.tips" target="_blank" class="social-link" title="Europa Tips">🌍</a>
-                <a href="mailto:jaseph@hotmail.com" class="social-link" title="E-Mail">✉️</a>
+   <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">
+                Kontakt
+            </h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Ihr Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500 bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Ihre E-Mail</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500 bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Ihre Nachricht</label>
+                            <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500 bg-white" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition">
+                            Nachricht senden <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                    <div id="formMessage" class="mt-4 hidden"></div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <p class="text-gray-600 mb-4">Oder erreichen Sie mich direkt:</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="mailto:jaseph@hotmail.com" class="text-gray-700 hover:text-gray-900">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                        <a href="tel:+49 17663057728" class="text-gray-700 hover:text-gray-900">
+                            <i class="fas fa-phone text-2xl"></i>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=4917663057728" class="text-gray-700 hover:text-gray-900">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="#home">Home</a><a href="#ueber-mich">Über Mich</a><a href="#kompetenzen">Kompetenzen</a><a href="#projekte">Projekte</a><a href="#kontakt">Kontakt</a>
+        </div>
+    </section>
+    <!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Jaseph - Full-Stack-Entwickler-Portfolio. Alle Rechte vorbehalten.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
             </div>
-            <p>&copy; 2025 Özer Cet - Full-Stack Entwickler Portfolio</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        if (entry.target.classList.contains('skill-progress')) {
-                            const width = entry.target.getAttribute('data-width');
-                            entry.target.style.width = width;
-                        }
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in, .skill-progress').forEach(el => observer.observe(el));
+    <!-- Modals -->
+   <div id="aboutModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold gradient-text">Über Jaseph</h2>
+                <button onclick="closeModal('aboutModal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
             
-            const typingElement = document.getElementById('typingText');
-            if(typingElement) {
-                const texts = ["Code-Experten", "Problemlöser", "Autodidakten", "Web-Entwickler"];
-                let textIndex = 0, charIndex = 0, isDeleting = false;
-                function type() {
-                    const currentText = texts[textIndex];
-                    let typeSpeed = isDeleting ? 50 : 120;
-                    if (isDeleting) {
-                        typingElement.textContent = currentText.substring(0, charIndex--);
-                    } else {
-                        typingElement.textContent = currentText.substring(0, charIndex++);
-                    }
-                    if (!isDeleting && charIndex === currentText.length) {
-                        typeSpeed = 2000;
-                        isDeleting = true;
-                    } else if (isDeleting && charIndex === 0) {
-                        isDeleting = false;
-                        textIndex = (textIndex + 1) % texts.length;
-                    }
-                    setTimeout(type, typeSpeed);
-                }
-                type();
-            }
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Mein Bildungsweg</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700">Hacettepe-Universität - Fachbereich Mathematik (1993-1997)</h4>
+                        <p class="text-gray-600 mt-2">
+                            Mein Mathematikstudium in Ankara hat mein analytisches Denkvermögen und meine Problemlösungskompetenz von Grund auf geprägt. Die in dieser Zeit erworbene logische Denkstruktur wurde zu meinem größten Vorteil bei meinem späteren Wechsel in die Softwareentwicklung.
+                        </p>
+                    </div>
+                </div>
 
-            window.addEventListener('scroll', () => {
-                document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Meine Berufserfahrung</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700">Unternehmer & Manager (1998-2013)</h4>
+                        <p class="text-gray-600 mt-2">
+                            15 Jahre lang habe ich im Tourismus- und Gastronomiesektor meine eigenen Unternehmen gegründet und geleitet. Die dabei gewonnenen Erfahrungen in den Bereichen Unternehmensführung, Leadership, Kundenbeziehungen und strategische Planung haben meinem Berufsleben eine neue Perspektive verliehen.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Meine Reise in die Technologie</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700">Das Abenteuer Softwareentwicklung (2018-Heute)</h4>
+                        <p class="text-gray-600 mt-2">
+                            2018 wagte ich den Schritt in die Technologiewelt und begann, Softwareentwicklung zu lernen. Seit 2019 eigne ich mir moderne Web-Technologien vollständig autodidaktisch an. Nach dem Prinzip des lebenslangen Lernens bilde ich mich kontinuierlich weiter, indem ich aktuelle Technologien verfolge.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Meine Philosophie</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-gray-600">
+                            "Einzigartige Lösungen schaffen, indem ich die Disziplin der Mathematik, den Mut des Unternehmertums und die Kreativität der Softwareentwicklung vereine." Mit dieser Philosophie gehe ich jedes Projekt aus einer neuen Perspektive an und verbinde meine technischen Fähigkeiten mit meiner Geschäftserfahrung, um wertvolle Produkte zu entwickeln.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg max-w-2xl w-full shadow-2xl">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold gradient-text">Meine Kontaktdaten</h2>
+                <button onclick="closeModal('contactModal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg text-center">
+                        <i class="fas fa-envelope text-3xl text-gray-700 mb-3"></i>
+                        <h3 class="font-semibold mb-2 text-gray-800">E-Mail</h3>
+                        <a href="mailto:jaseph@hotmail.com" class="text-gray-600 hover:underline break-all">jaseph@hotmail.com</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg text-center">
+                        <i class="fas fa-phone text-3xl text-gray-700 mb-3"></i>
+                        <h3 class="font-semibold mb-2 text-gray-800">Telefon</h3>
+                        <a href="tel:+4917663057728" class="text-gray-600 hover:underline">+49 176 63057728</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-semibold mb-3 text-gray-800">Standort</h3>
+                    <p class="text-gray-600 mb-4">Köln, Deutschland</p>
+                    <div class="mt-4 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-4xl text-gray-700"></i>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-semibold mb-3 text-center text-gray-800">Soziale Medien</h3>
+                    <div class="flex justify-center space-x-6 mt-4">
+                        <a href="https://github.com/jaseph" target="_blank" class="text-gray-700 hover:text-gray-900 text-2xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/oezercet/" target="_blank" class="text-gray-700 hover:text-gray-900 text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/jaseph_" target="_blank" class="text-gray-700 hover:text-gray-900 text-2xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/jaseph_" target="_blank" class="text-gray-700 hover:text-gray-900 text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                         <a href="https://api.whatsapp.com/send?phone=4917663057728" target="_blank" class="text-gray-700 hover:text-gray-900 text-2xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-gray-600">Sie können mich für Projektvorschläge, Kooperationen oder einfach bei Fragen gerne kontaktieren.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="projectModal1" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold gradient-text">Voylera - Emotions-Mapping</h2>
+                    <button onclick="closeModal('projectModal1')" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <img src="https://picsum.photos/seed/voylera-detail/800/400" alt="Voylera - Screenshot der Emotions-Mapping-Plattform" class="w-full rounded-lg mb-6">
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Projektbeschreibung</h3>
+                        <p class="text-gray-600">
+                            Voylera ist eine einzigartige Web-Anwendung, die es Nutzern ermöglicht, ihre Gefühle und Gedanken anonym auf einer interaktiven Weltkarte zu teilen. Das Projekt zielt darauf ab, eine globale emotionale Momentaufnahme zu schaffen und Menschen durch gemeinsame Gefühle zu verbinden.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Funktionen</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Interaktive Weltkarte zur Visualisierung von Emotionen</li>
+                            <li>Anonyme Beitragserstellung mit Emotions-Tags</li>
+                            <li>Filter- und Suchfunktionen nach Ort und Gefühl</li>
+                            <li>Echtzeit-Aktualisierungen der Gefühlskarte</li>
+                            <li>Responsives Design für eine optimale Darstellung auf allen Geräten</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Verwendete Technologien</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">PHP</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">MySQL</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">JavaScript (ES6+)</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Tailwind CSS</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Leaflet.js</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">HTML5</span>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="https://voylera.com" target="_blank" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Live-Demo
+                        </a>
+                        <a href="#" class="border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition">
+                            <i class="fab fa-github mr-2"></i>Quellcode
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projectModal2" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold gradient-text">Europa.tips - Reiseblog</h2>
+                    <button onclick="closeModal('projectModal2')" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <img src="https://picsum.photos/seed/europatips-detail/800/400" alt="Europa.tips - Screenshot des 9-sprachigen Reiseblogs" class="w-full rounded-lg mb-6">
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Projektbeschreibung</h3>
+                        <p class="text-gray-600">
+                           Europa.tips ist mein persönlicher, mehrsprachiger Reiseblog, der auf einer Headless-WordPress-Architektur basiert. Anstatt ein Standard-Theme zu verwenden, werden die Inhalte über eine benutzerdefinierte PHP/PDO-Schnittstelle direkt aus der MySQL-Datenbank abgerufen. Dies gewährleistet maximale Performance und volle gestalterische Freiheit.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Funktionen</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Vollständige Unterstützung für 9 Sprachen</li>
+                            <li>Maßgeschneidertes Frontend für einzigartiges Design und hohe Geschwindigkeit</li>
+                            <li>Headless-Ansatz mit WordPress als Backend-CMS</li>
+                            <li>Direkte und performante Datenabfrage via PHP/PDO</li>
+                            <li>Starke SEO-Optimierung für internationale Sichtbarkeit</li>
+                            <li>Vollständig responsives Design für alle Endgeräte</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Verwendete Technologien</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Headless WordPress</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">PHP</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">PDO (PHP Data Objects)</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">MySQL</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">SEO</span>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="https://europa.tips" target="_blank" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Live-Demo
+                        </a>
+                        <a href="#" class="border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition">
+                            <i class="fab fa-github mr-2"></i>Quellcode
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projectModal3" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold gradient-text">Sitefex - Bio-Link Plattform</h2>
+                    <button onclick="closeModal('projectModal3')" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <img src="https://picsum.photos/seed/sitefex-detail/800/400" alt="Sitefex - Screenshot der Bio-Seiten-Plattform" class="w-full rounded-lg mb-6">
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Projektbeschreibung</h3>
+                        <p class="text-gray-600">
+                            Sitefex ist eine mit dem Laravel-Framework entwickelte Plattform, die es Nutzern, insbesondere Influencern und Kreativen, ermöglicht, schnell und einfach eine personalisierte Bio-Link-Seite zu erstellen. Die Anwendung bietet eine intuitive Benutzeroberfläche zur Verwaltung von Links, sozialen Medien und persönlichem Branding.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Funktionen</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Einfacher Editor zur Erstellung von Bio-Seiten</li>
+                            <li>Umfassende Anpassungsmöglichkeiten für Farben, Schriftarten und Layout</li>
+                            <li>Unbegrenzte Anzahl an Links zu Webseiten und sozialen Profilen</li>
+                            <li>Sicheres Benutzer- und Authentifizierungssystem</li>
+                            <li>Robuste und skalierbare Backend-Architektur mit Laravel</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Verwendete Technologien</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Laravel</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">PHP</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">MySQL</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Blade Templates</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="https://sitefex.com" target="_blank" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Live-Demo
+                        </a>
+                        <a href="#" class="border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition">
+                            <i class="fab fa-github mr-2"></i>Quellcode
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal-backdrop')) {
+                event.target.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
             });
         });
 
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.classList.add('show'), 10);
+        // Animate skill bars when in view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillObserver.observe(skillsSection);
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formMessage = document.getElementById('formMessage');
+            formMessage.classList.remove('hidden');
+            formMessage.className = 'mt-4 p-4 bg-green-100 text-green-700 rounded-lg';
+            formMessage.textContent = 'Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide message after 5 seconds
             setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => document.body.removeChild(notification), 500);
-            }, 4000);
-        }
+                formMessage.classList.add('hidden');
+            }, 5000);
+        });
 
-        function downloadCV() {
-            showNotification('Lebenslauf wird vorbereitet...', 'success');
-            const cvData = `
-LEBENSLAUF - ÖZER CET
-Full-Stack Entwickler | Köln
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
 
-KONTAKT
-E-Mail: jaseph@hotmail.com
-Mobil: +49 176 63057728
-LinkedIn: linkedin.com/in/ozercet
-GitHub: github.com/jaseph
-Portfolio: jaseph.github.io
+        // Add fade-in animation to elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-PROFIL
-Autodidaktischer und leidenschaftlicher Full-Stack Entwickler mit einem einzigartigen Hintergrund, der handwerkliche Präzision mit moderner Web-Technologie verbindet. Nachgewiesene Fähigkeit, komplexe Probleme zu lösen und durch Eigeninitiative hochwertige, performante Webanwendungen zu erstellen. Ich suche eine herausfordernde Position, in der ich meine Fähigkeiten in PHP, React und JavaScript einsetzen und weiterentwickeln kann.
-
-BERUFSERFAHRUNG
-2019 - heute: Autodidaktischer Full-Stack Entwickler (Projektbasiert)
-- Entwicklung von europa.tips: Performante Reise-Website mit Headless WordPress und maßgeschneidertem PHP-Frontend.
-- Konzeption und Entwicklung von Business-Tools (z.B. CRM für KFZ-Betriebe) mit PHP und MySQL.
-- Erstellung von Frontend-Anwendungen und Prototypen mit React.js und Next.js.
-
-2018 - 2024: Reifenmonteur, diverse Unternehmen in Köln
-- Entwicklung von Problemlösungskompetenz, Präzision und Belastbarkeit unter hohem Druck.
-
-TECHNISCHE KOMPETENZEN
-- Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Next.js, Vue.js
-- Backend: PHP, Node.js, MySQL (PDO), PostgreSQL, RESTful APIs
-- CMS & Tools: WordPress (Headless), Git/GitHub, SEO, AI-Integration
-- Sprachen: Türkisch (Muttersprache), Deutsch (B1), Englisch (B1)
-
-AUSBILDUNG
-1993 - 1997: Mathematikstudium, Hacettepe Universität, Ankara
-
-KERNKOMPETENZEN
-- Schnelle Auffassungsgabe und selbstständiges Lernen
-- Starke analytische Fähigkeiten
-- Praktische, lösungsorientierte Denkweise
-- Hohes Qualitätsbewusstsein und Zuverlässigkeit
-            `;
-            const blob = new Blob([cvData.trim()], { type: 'text/plain;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Lebenslauf_Ozer_Cet.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            showNotification('Lebenslauf erfolgreich heruntergeladen! 📄', 'success');
-        }
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeObserver.observe(element);
+        });
     </script>
 </body>
 </html>
